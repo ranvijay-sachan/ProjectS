@@ -14,13 +14,13 @@ class MyCustomPermissions(permissions.BasePermission):
         if request.user.is_superuser:
             return True
 
-        if obj.owner.id == request.user_id:
+        # if obj.owner.id == request.user_id:
+        #     return True
+
+        if "manage_product" in request.user.permissions:
             return True
 
-        if "manage_product" in request.user.Permissions:
-            return True
-
-        if request.method in permissions.SAFE_METHODS and "read_product" in request.user.Permissions:
+        if request.method in permissions.SAFE_METHODS and "read_product" in request.user.permissions:
             return True
 
         return False
