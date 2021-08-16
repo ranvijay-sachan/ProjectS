@@ -14,7 +14,7 @@ class InventoryViewSet(viewsets.ModelViewSet):
     """
     queryset = MyInventory.objects.all()
     serializer_class = InventorySerializer
-    permission_classes = (MyCustomPermissions,)
+    # permission_classes = (MyCustomPermissions,)
     http_method_names = ['get', 'post', 'put', 'patch']
 
     @action(detail=True, methods=['put'], serializer_class=DeleteSerializer)
